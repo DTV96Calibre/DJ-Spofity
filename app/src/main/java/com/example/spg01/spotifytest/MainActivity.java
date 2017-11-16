@@ -39,7 +39,7 @@ public class MainActivity extends Activity implements
     // TODO: Replace with your redirect URI
     private static final String REDIRECT_URI = "http://facebook.com";
 
-    private Player mPlayer;
+    public static Player mPlayer;
     private SpotifyApi spotifyApi;
 
     private EditText searchEditText;
@@ -141,7 +141,7 @@ public class MainActivity extends Activity implements
     public void onLoggedIn() {
         Log.d("MainActivity", "User logged in");
 
-         mPlayer.playUri(null, "spotify:track:3CRDbSIZ4r5MsZ0YwxuEkn", 0, 0);
+         mPlayer.playUri(null, "spotify:track:6MFoqu0qP9MNxj7UgYaxpD", 0, 0);
     }
 
     @Override
@@ -165,6 +165,8 @@ public class MainActivity extends Activity implements
     }
 
     public void onSearch(View v) {
+        Intent myIntent = new Intent(MainActivity.this, Playback.class);
+        MainActivity.this.startActivity(myIntent);
 
         SpotifyService spotify = spotifyApi.getService();
 
